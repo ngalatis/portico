@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Portico – Custom Login Page
- * Plugin URI: https://github.com/wefixit/portico
+ * Plugin URI: https://github.com/ngalatis/portico
  * Description: Customize the WordPress login page with a modern, professional design. Includes settings for background image, colors, welcome text, and social media links.
  * Version: 1.3.0
  * Requires at least: 5.8
@@ -11,7 +11,7 @@
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: portico
- * Update URI: https://github.com/wefixit/portico
+ * Update URI: https://github.com/ngalatis/portico
  */
 
 // Prevent direct access
@@ -24,7 +24,7 @@ define('PORTICO_VERSION', '1.3.0');
 define('PORTICO_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('PORTICO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('PORTICO_PLUGIN_BASENAME', plugin_basename(__FILE__));
-define('PORTICO_GITHUB_REPO', 'https://github.com/wefixit/portico/');
+define('PORTICO_GITHUB_REPO', 'https://github.com/ngalatis/portico/');
 
 /**
  * Get plugin options with defaults

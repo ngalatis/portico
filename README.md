@@ -16,10 +16,10 @@ Requires WordPress 5.8+ and PHP 7.4+.
 With WP-CLI:
 
 ```bash
-wp plugin install https://github.com/wefixit/portico/releases/latest/download/portico.zip --activate
+wp plugin install https://github.com/ngalatis/portico/releases/latest/download/portico.zip --activate
 ```
 
-Or download `portico.zip` from the [latest release](https://github.com/wefixit/portico/releases/latest) and upload it via **Plugins → Add New → Upload Plugin**.
+Or download `portico.zip` from the [latest release](https://github.com/ngalatis/portico/releases/latest) and upload it via **Plugins → Add New → Upload Plugin**.
 
 > Use the `portico.zip` release asset, not GitHub's "Source code" archive — the latter unpacks into a differently named folder and won't receive updates.
 
@@ -29,7 +29,7 @@ Portico was previously called Custom Login Page. On activation it imports your e
 
 ```bash
 wp plugin deactivate custom-login-page
-wp plugin install https://github.com/wefixit/portico/releases/latest/download/portico.zip --activate
+wp plugin install https://github.com/ngalatis/portico/releases/latest/download/portico.zip --activate
 wp plugin delete custom-login-page
 ```
 
