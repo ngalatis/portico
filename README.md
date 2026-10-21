@@ -33,7 +33,7 @@ The plugin checks this repository's GitHub releases (via [Plugin Update Checker]
 2. Commit, then tag and push:
    ```bash
    git tag v1.3.1
-   git push origin main --tags
+   git push origin master --tags
    ```
 3. The `Release` GitHub Action verifies the versions match the tag, builds `custom-login-page.zip` and publishes the release. Sites pick up the update within ~12 hours (or immediately via **Dashboard → Updates → Check again**).
 
