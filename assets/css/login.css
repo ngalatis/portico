@@ -1,0 +1,441 @@
+/**
+ * Custom Login Page - Login Styles
+ * Uses high-specificity selectors to override WordPress defaults without !important
+ * Uses CSS Grid for 50-50 responsive layout
+ */
+
+/* ==========================================================================
+   Full page background
+   Using html body.login for higher specificity than default body.login
+   ========================================================================== */
+html body.login {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+html body.login.clp-has-bg-image {
+    background: var(--clp-background-image) no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Dark overlay for better readability */
+html body.login::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to var(--clp-overlay-direction, right), rgba(0,0,0,var(--clp-overlay-opacity, 0.5)) 0%, rgba(0,0,0,var(--clp-overlay-opacity-half, 0.25)) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Main container - CSS Grid for 50-50 layout
+   ========================================================================== */
+html body.login div#login {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px;
+    margin: 0 auto;
+    background: transparent;
+
+    /* CSS Grid layout */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Hide default WordPress login logo */
+html body.login div#login h1 {
+    display: none;
+}
+
+html body.login div#login h1 a {
+    display: none;
+}
+
+/* ==========================================================================
+   Welcome section (left column)
+   ========================================================================== */
+html body.login div#login .login-welcome {
+    color: #fff;
+    grid-column: 1;
+}
+
+html body.login div#login .login-welcome h2 {
+    font-size: 96px;
+    font-weight: 800;
+    font-style: normal;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    color: #fff;
+}
+
+html body.login div#login .login-welcome p {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+html body.login div#login .login-welcome .social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+html body.login div#login .login-welcome .social-icons a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+html body.login div#login .login-welcome .social-icons a:hover {
+    background: #fff;
+    color: #333;
+    border-color: #fff;
+}
+
+/* ==========================================================================
+   Form wrapper (right column) - contains form, nav, backtoblog, etc.
+   ========================================================================== */
+html body.login div#login .login-form-wrapper {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ==========================================================================
+   Login form container - Frosted glass effect
+   ========================================================================== */
+html body.login div#login .login-form-wrapper form#loginform {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Form title (added via JS) */
+html body.login div#login .login-form-wrapper form#loginform .form-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 30px 0;
+    text-align: center;
+}
+
+/* Form labels */
+html body.login div#login .login-form-wrapper form#loginform label {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Input fields - taller for modern look */
+html body.login div#login .login-form-wrapper form#loginform input[type="text"],
+html body.login div#login .login-form-wrapper form#loginform input[type="password"] {
+    width: 100%;
+    padding: 16px 18px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+html body.login div#login .login-form-wrapper form#loginform input[type="text"]::placeholder,
+html body.login div#login .login-form-wrapper form#loginform input[type="password"]::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+html body.login div#login .login-form-wrapper form#loginform input[type="text"]:focus,
+html body.login div#login .login-form-wrapper form#loginform input[type="password"]:focus {
+    border-color: var(--clp-accent-color, #e65c00);
+    box-shadow: 0 0 0 2px rgba(230, 92, 0, 0.3);
+    outline: none;
+    background: #fff;
+}
+
+/* ==========================================================================
+   Password visibility toggle icon - vertically center it
+   ========================================================================== */
+html body.login div#login .login-form-wrapper form#loginform .wp-pwd {
+    position: relative;
+}
+
+html body.login div#login .login-form-wrapper form#loginform .wp-pwd .button.wp-hide-pw {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -6px;
+    height: auto;
+    padding: 8px 10px;
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+}
+
+html body.login div#login .login-form-wrapper form#loginform .wp-pwd .button.wp-hide-pw:hover {
+    background: transparent;
+    color: #333;
+}
+
+html body.login div#login .login-form-wrapper form#loginform .wp-pwd .button.wp-hide-pw .dashicons {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+/* ==========================================================================
+   Remember me checkbox
+   ========================================================================== */
+html body.login div#login .login-form-wrapper form#loginform p.forgetmenot {
+    float: left;
+}
+
+html body.login div#login .login-form-wrapper form#loginform p.forgetmenot label {
+    font-size: 13px;
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   Password reset link positioning
+   ========================================================================== */
+html body.login div#login .login-form-wrapper form#loginform .pw-reset-link {
+    float: right;
+    font-size: 13px;
+    line-height: 24px;
+}
+
+html body.login div#login .login-form-wrapper form#loginform .pw-reset-link a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+html body.login div#login .login-form-wrapper form#loginform .pw-reset-link a:hover {
+    color: #fff;
+}
+
+/* ==========================================================================
+   Submit button
+   ========================================================================== */
+html body.login div#login .login-form-wrapper form#loginform p.submit {
+    clear: both;
+    padding-top: 15px;
+}
+
+html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-submit {
+    width: 100%;
+    background: var(--clp-accent-color, #e65c00);
+    border: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    text-shadow: none;
+    height: auto;
+    box-shadow: 0 4px 15px rgba(230, 92, 0, 0.3);
+    line-height: 1;
+}
+
+html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-submit:hover,
+html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-submit:focus {
+    background: var(--clp-accent-hover, #cc5200);
+    border: none;
+    box-shadow: 0 6px 20px rgba(230, 92, 0, 0.4);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Error messages - frosted style
+   ========================================================================== */
+html body.login div#login .login-form-wrapper #login_error,
+html body.login div#login .login-form-wrapper .message,
+html body.login div#login .login-form-wrapper .success {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--clp-accent-color, #e65c00);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #fff;
+    max-width: 380px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 15px;
+}
+
+html body.login div#login .login-form-wrapper #login_error a,
+html body.login div#login .login-form-wrapper .message a,
+html body.login div#login .login-form-wrapper .success a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Nav links (Lost password, back to site)
+   ========================================================================== */
+html body.login div#login .login-form-wrapper #nav,
+html body.login div#login .login-form-wrapper #backtoblog {
+    text-align: center;
+    margin: 15px 0 0 0;
+    padding: 0;
+    width: 100%;
+    max-width: 380px;
+}
+
+html body.login div#login .login-form-wrapper #nav a,
+html body.login div#login .login-form-wrapper #backtoblog a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+html body.login div#login .login-form-wrapper #nav a:hover,
+html body.login div#login .login-form-wrapper #backtoblog a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+/* Hide default nav when we add custom password reset link */
+html body.login div#login .login-form-wrapper #nav {
+    display: none;
+}
+
+/* ==========================================================================
+   Privacy policy link
+   ========================================================================== */
+html body.login div#login .login-form-wrapper .privacy-policy-page-link {
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 380px;
+}
+
+html body.login div#login .login-form-wrapper .privacy-policy-page-link a {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+}
+
+/* ==========================================================================
+   Language switcher
+   ========================================================================== */
+html body.login .language-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+html body.login .language-switcher select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+/* ==========================================================================
+   Responsive styles - single column on mobile
+   ========================================================================== */
+@media (max-width: 782px) {
+    html body.login div#login {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    html body.login div#login .login-welcome {
+        grid-column: 1;
+        text-align: center;
+    }
+
+    html body.login div#login .login-welcome h2 {
+        font-size: 56px;
+    }
+
+    html body.login div#login .login-welcome p {
+        font-size: 16px;
+    }
+
+    html body.login div#login .login-welcome .social-icons {
+        justify-content: center;
+    }
+
+    html body.login div#login .login-form-wrapper {
+        grid-column: 1;
+    }
+
+    html body.login div#login .login-form-wrapper form#loginform {
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    html body.login div#login .login-form-wrapper #nav,
+    html body.login div#login .login-form-wrapper #backtoblog,
+    html body.login div#login .login-form-wrapper .privacy-policy-page-link,
+    html body.login div#login .login-form-wrapper #login_error,
+    html body.login div#login .login-form-wrapper .message,
+    html body.login div#login .login-form-wrapper .success {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    html body.login div#login {
+        padding: 15px;
+    }
+
+    html body.login div#login .login-form-wrapper form#loginform {
+        padding: 20px;
+    }
+
+    html body.login div#login .login-welcome h2 {
+        font-size: 40px;
+    }
+
+    html body.login div#login .login-welcome p {
+        font-size: 15px;
+    }
+}
