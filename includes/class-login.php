@@ -1,6 +1,6 @@
 <?php
 /**
- * Login page customization class for Custom Login Page plugin
+ * Login page customization class for Portico plugin
  */
 
 // Prevent direct access
@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-class CLP_Login {
+class Portico_Login {
 
     private $options;
 
@@ -24,24 +24,24 @@ class CLP_Login {
      * Output CSS custom properties for dynamic values
      */
     public function output_css_variables() {
-        $options = clp_get_options();
+        $options = portico_get_options();
         $bg_image = $options['background_image'];
         $accent = $options['accent_color'];
         $accent_hover = $options['accent_color_hover'];
         $opacity = floatval($options['overlay_opacity']);
         $direction = $options['overlay_direction'];
         ?>
-        <style id="clp-css-variables">
+        <style id="portico-css-variables">
             :root {
-                --clp-accent-color: <?php echo esc_attr($accent); ?>;
-                --clp-accent-hover: <?php echo esc_attr($accent_hover); ?>;
-                --clp-overlay-opacity: <?php echo esc_attr($opacity); ?>;
-                --clp-overlay-opacity-half: <?php echo esc_attr($opacity * 0.5); ?>;
-                --clp-overlay-direction: <?php echo esc_attr($direction); ?>;
+                --portico-accent-color: <?php echo esc_attr($accent); ?>;
+                --portico-accent-hover: <?php echo esc_attr($accent_hover); ?>;
+                --portico-overlay-opacity: <?php echo esc_attr($opacity); ?>;
+                --portico-overlay-opacity-half: <?php echo esc_attr($opacity * 0.5); ?>;
+                --portico-overlay-direction: <?php echo esc_attr($direction); ?>;
                 <?php if (!empty($bg_image)): ?>
-                --clp-background-image: url('<?php echo esc_url($bg_image); ?>');
+                --portico-background-image: url('<?php echo esc_url($bg_image); ?>');
                 <?php else: ?>
-                --clp-background-image: none;
+                --portico-background-image: none;
                 <?php endif; ?>
             }
         </style>
@@ -52,13 +52,13 @@ class CLP_Login {
      * Enqueue login page styles
      */
     public function enqueue_login_styles() {
-        $options = clp_get_options();
+        $options = portico_get_options();
 
         wp_enqueue_style(
-            'clp-login-css',
-            CLP_PLUGIN_URL . 'assets/css/login.css',
+            'portico-login-css',
+            PORTICO_PLUGIN_URL . 'assets/css/login.css',
             array('login'),
-            CLP_VERSION
+            PORTICO_VERSION
         );
     }
 
@@ -66,7 +66,7 @@ class CLP_Login {
      * Enqueue login page scripts and output configuration
      */
     public function enqueue_login_scripts() {
-        $options = clp_get_options();
+        $options = portico_get_options();
         $show_social = $options['show_social_icons'] === '1';
 
         // Build social icons data
@@ -113,18 +113,18 @@ class CLP_Login {
             'showSocial' => $show_social,
             'socialIcons' => $social_icons,
             'lostPasswordUrl' => esc_url(wp_lostpassword_url()),
-            'passwordResetText' => esc_html__('Password reset', 'custom-login-page'),
+            'passwordResetText' => esc_html__('Password reset', 'portico'),
         );
 
         wp_enqueue_script(
-            'clp-login-js',
-            CLP_PLUGIN_URL . 'assets/js/login.js',
+            'portico-login-js',
+            PORTICO_PLUGIN_URL . 'assets/js/login.js',
             array(),
-            CLP_VERSION,
+            PORTICO_VERSION,
             true
         );
 
-        wp_localize_script('clp-login-js', 'clpConfig', $config);
+        wp_localize_script('portico-login-js', 'porticoConfig', $config);
     }
 
     /**

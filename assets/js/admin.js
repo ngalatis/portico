@@ -1,15 +1,15 @@
 /**
- * Custom Login Page - Admin Scripts
+ * Portico - Admin Scripts
  */
 (function($) {
     'use strict';
 
     $(document).ready(function() {
         // Initialize color pickers
-        $('.clp-color-picker').wpColorPicker();
+        $('.portico-color-picker').wpColorPicker();
 
         // Media uploader for background image
-        $('#clp_upload_button').on('click', function(e) {
+        $('#portico_upload_button').on('click', function(e) {
             e.preventDefault();
 
             var mediaUploader = wp.media({
@@ -20,23 +20,23 @@
 
             mediaUploader.on('select', function() {
                 var attachment = mediaUploader.state().get('selection').first().toJSON();
-                $('#clp_background_image').val(attachment.url);
-                $('#clp_image_preview').html('<img src="' + attachment.url + '" class="clp-preview-image">');
+                $('#portico_background_image').val(attachment.url);
+                $('#portico_image_preview').html('<img src="' + attachment.url + '" class="portico-preview-image">');
             });
 
             mediaUploader.open();
         });
 
         // Remove background image
-        $('#clp_remove_button').on('click', function(e) {
+        $('#portico_remove_button').on('click', function(e) {
             e.preventDefault();
-            $('#clp_background_image').val('');
-            $('#clp_image_preview').html('');
+            $('#portico_background_image').val('');
+            $('#portico_image_preview').html('');
         });
 
         // Update opacity value display
-        $('#clp_overlay_opacity').on('input', function() {
-            $('#clp_opacity_value').text($(this).val());
+        $('#portico_overlay_opacity').on('input', function() {
+            $('#portico_opacity_value').text($(this).val());
         });
     });
 

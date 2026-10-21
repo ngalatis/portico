@@ -1,5 +1,5 @@
 /**
- * Custom Login Page - Login Styles
+ * Portico - Login Styles
  * Uses high-specificity selectors to override WordPress defaults without !important
  * Uses CSS Grid for 50-50 responsive layout
  */
@@ -18,8 +18,8 @@ html body.login {
     padding: 0;
 }
 
-html body.login.clp-has-bg-image {
-    background: var(--clp-background-image) no-repeat center center fixed;
+html body.login.portico-has-bg-image {
+    background: var(--portico-background-image) no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -31,7 +31,7 @@ html body.login::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to var(--clp-overlay-direction, right), rgba(0,0,0,var(--clp-overlay-opacity, 0.5)) 0%, rgba(0,0,0,var(--clp-overlay-opacity-half, 0.25)) 100%);
+    background: linear-gradient(to var(--portico-overlay-direction, right), rgba(0,0,0,var(--portico-overlay-opacity, 0.5)) 0%, rgba(0,0,0,var(--portico-overlay-opacity-half, 0.25)) 100%);
     z-index: 0;
     pointer-events: none;
 }
@@ -182,7 +182,7 @@ html body.login div#login .login-form-wrapper form#loginform input[type="passwor
 
 html body.login div#login .login-form-wrapper form#loginform input[type="text"]:focus,
 html body.login div#login .login-form-wrapper form#loginform input[type="password"]:focus {
-    border-color: var(--clp-accent-color, #e65c00);
+    border-color: var(--portico-accent-color, #e65c00);
     box-shadow: 0 0 0 2px rgba(230, 92, 0, 0.3);
     outline: none;
     background: #fff;
@@ -262,7 +262,7 @@ html body.login div#login .login-form-wrapper form#loginform p.submit {
 
 html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-submit {
     width: 100%;
-    background: var(--clp-accent-color, #e65c00);
+    background: var(--portico-accent-color, #e65c00);
     border: none;
     border-radius: 8px;
     padding: 16px 20px;
@@ -280,7 +280,7 @@ html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-s
 
 html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-submit:hover,
 html body.login div#login .login-form-wrapper form#loginform p.submit input#wp-submit:focus {
-    background: var(--clp-accent-hover, #cc5200);
+    background: var(--portico-accent-hover, #cc5200);
     border: none;
     box-shadow: 0 6px 20px rgba(230, 92, 0, 0.4);
     transform: translateY(-1px);
@@ -294,7 +294,7 @@ html body.login div#login .login-form-wrapper .message,
 html body.login div#login .login-form-wrapper .success {
     border-radius: 8px;
     margin-bottom: 20px;
-    border-left: 4px solid var(--clp-accent-color, #e65c00);
+    border-left: 4px solid var(--portico-accent-color, #e65c00);
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

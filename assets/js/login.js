@@ -1,11 +1,11 @@
 /**
- * Custom Login Page - Login Scripts
+ * Portico - Login Scripts
  */
 (function() {
     'use strict';
 
     document.addEventListener('DOMContentLoaded', function() {
-        if (typeof clpConfig === 'undefined') {
+        if (typeof porticoConfig === 'undefined') {
             return;
         }
 
@@ -18,16 +18,16 @@
 
         // Add class to body if background image is set
         var style = getComputedStyle(document.documentElement);
-        var bgImage = style.getPropertyValue('--clp-background-image').trim();
+        var bgImage = style.getPropertyValue('--portico-background-image').trim();
         if (bgImage && bgImage !== 'none') {
-            document.body.classList.add('clp-has-bg-image');
+            document.body.classList.add('portico-has-bg-image');
         }
 
         // Build social icons HTML
         var socialHTML = '';
-        if (clpConfig.showSocial && clpConfig.socialIcons && clpConfig.socialIcons.length > 0) {
+        if (porticoConfig.showSocial && porticoConfig.socialIcons && porticoConfig.socialIcons.length > 0) {
             socialHTML = '<div class="social-icons">';
-            clpConfig.socialIcons.forEach(function(icon) {
+            porticoConfig.socialIcons.forEach(function(icon) {
                 socialHTML += '<a href="' + icon.url + '" target="_blank" rel="noopener" aria-label="' + icon.label + '">' + icon.icon + '</a>';
             });
             socialHTML += '</div>';
@@ -49,8 +49,8 @@
 
         // Add welcome section at the beginning of #login
         var welcomeHTML = '<div class="login-welcome">' +
-            '<h2>' + clpConfig.welcomeTitle + '</h2>' +
-            '<p>' + clpConfig.welcomeText + '</p>' +
+            '<h2>' + porticoConfig.welcomeTitle + '</h2>' +
+            '<p>' + porticoConfig.welcomeText + '</p>' +
             socialHTML +
             '</div>';
         loginDiv.insertAdjacentHTML('afterbegin', welcomeHTML);
@@ -58,18 +58,18 @@
         // Modify the form
         if (form) {
             // Add form title
-            form.insertAdjacentHTML('afterbegin', '<h3 class="form-title">' + clpConfig.formTitle + '</h3>');
+            form.insertAdjacentHTML('afterbegin', '<h3 class="form-title">' + porticoConfig.formTitle + '</h3>');
 
             // Change submit button text
             var submitBtn = form.querySelector('#wp-submit');
             if (submitBtn) {
-                submitBtn.value = clpConfig.buttonText;
+                submitBtn.value = porticoConfig.buttonText;
             }
 
             // Add password reset link next to remember me
             var forgetmenot = form.querySelector('.forgetmenot');
             if (forgetmenot) {
-                forgetmenot.insertAdjacentHTML('afterend', '<span class="pw-reset-link"><a href="' + clpConfig.lostPasswordUrl + '">' + clpConfig.passwordResetText + '</a></span>');
+                forgetmenot.insertAdjacentHTML('afterend', '<span class="pw-reset-link"><a href="' + porticoConfig.lostPasswordUrl + '">' + porticoConfig.passwordResetText + '</a></span>');
             }
         }
     });

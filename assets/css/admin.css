@@ -1,8 +1,8 @@
 /**
- * Custom Login Page - Admin Styles
+ * Portico - Admin Styles
  */
 
-.clp-preview-notice {
+.portico-preview-notice {
     background: #fff;
     padding: 15px 20px;
     border-left: 4px solid #e65c00;
@@ -10,15 +10,15 @@
     box-shadow: 0 1px 1px rgba(0,0,0,.04);
 }
 
-.clp-preview-notice p {
+.portico-preview-notice p {
     margin: 0;
 }
 
-.clp-preview-notice .button {
+.portico-preview-notice .button {
     margin-left: 10px;
 }
 
-.clp-preview-image {
+.portico-preview-image {
     max-width: 300px;
     height: auto;
     margin-top: 10px;
@@ -26,6 +26,6 @@
     display: block;
 }
 
-#clp_image_preview {
+#portico_image_preview {
     margin-top: 10px;
 }
