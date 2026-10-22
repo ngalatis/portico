@@ -11,6 +11,10 @@ Configure it under **Settings → Portico**:
 
 Requires WordPress 5.8+ and PHP 7.4+.
 
+Fresh installations use the bundled `assets/images/default-bg.jpg` background and the built-in English login text. Change or remove the image under **Settings → Portico**. Existing saved settings, including an empty background, take precedence over defaults.
+
+Bundled background photograph: Sam Ferrara, Unsplash (original filename: `sam-ferrara-1527pjeb6jg-unsplash.jpg`).
+
 ## Install
 
 With WP-CLI:

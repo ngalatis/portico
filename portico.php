@@ -3,7 +3,7 @@
  * Plugin Name: Portico – Custom Login Page
  * Plugin URI: https://github.com/ngalatis/portico
  * Description: Customize the WordPress login page with a modern, professional design. Includes settings for background image, colors, welcome text, and social media links.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: WEFIXIT
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Plugin constants
-define('PORTICO_VERSION', '1.3.0');
+define('PORTICO_VERSION', '1.3.1');
 define('PORTICO_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('PORTICO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('PORTICO_PLUGIN_BASENAME', plugin_basename(__FILE__));
@@ -33,7 +33,7 @@ define('PORTICO_GITHUB_REPO', 'https://github.com/ngalatis/portico/');
  */
 function portico_get_options() {
     $defaults = array(
-        'background_image' => '',
+        'background_image' => PORTICO_PLUGIN_URL . 'assets/images/default-bg.jpg',
         'accent_color' => '#e65c00',
         'accent_color_hover' => '#cc5200',
         'welcome_title' => 'Welcome<br>Back',
